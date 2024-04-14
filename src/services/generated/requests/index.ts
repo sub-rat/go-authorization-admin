@@ -15,10 +15,13 @@ export type { models_Menu } from './models/models_Menu';
 export type { models_MenuAction } from './models/models_MenuAction';
 export type { models_MenuActionResource } from './models/models_MenuActionResource';
 export type { models_MenuQueryResult } from './models/models_MenuQueryResult';
+export type { models_MenuTree } from './models/models_MenuTree';
+export type { models_MenuTrees } from './models/models_MenuTrees';
 export type { models_Role } from './models/models_Role';
 export type { models_RoleMenu } from './models/models_RoleMenu';
 export type { models_RoleQueryResult } from './models/models_RoleQueryResult';
 export type { models_User } from './models/models_User';
+export type { models_UserInfo } from './models/models_UserInfo';
 export type { models_UserQueryResult } from './models/models_UserQueryResult';
 export type { models_UserRole } from './models/models_UserRole';
 
