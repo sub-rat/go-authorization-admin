@@ -2,32 +2,242 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"); */
+
+/* Add your custom styles for the component */
+.scrolling-bg {
+  /* Adjust height as needed, full screen in this example */
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  /* background-image: url("./assets/images/loginBackground.svg"); */
+  /* Replace with your image path */
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.content {
+  position: relative;
+  z-index: 10;
+  /* Ensure the content is above the background */
+}
+
+.shadow-right {
+  box-shadow: 5px 0 5px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Customize the scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  /* Color of the scrollbar handle */
+  border-radius: 10px;
+  /* Radius of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+  /* Color of the scrollbar handle on hover */
+}
+
+/* Track on hover */
+::-webkit-scrollbar-track:hover {
+  background: #ddd;
+  /* Color of the scrollbar track on hover */
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+  background: transparent;
+  /* Background color of the scrollbar corner */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  font-family: "Inter", "sans-serif";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@layer base {
+  :root {
+    --white: #ffffff;
+    --black: 0 0 0;
+
+    --brand-primary: #154068;
+    --brand-secondary: #20669f;
+    --surface-background: #eef2f8;
+    --surface-layout: #ffffff;
+    --surface-muted: #eef2f7;
+    --surface-disabled: #dfe5ec;
+    --surface-highlight: #f7f9fe;
+
+    --interactive-primary: #154068;
+    --interactive-background: #d5e6f6;
+    --interactive-depressed: #0f2f4c;
+    --interactive-hover: #113455;
+
+    --warning-primary: #ebbd00;
+    --warning-background: #f9f5e7;
+
+    --info-primary: #154068;
+    --info-background: #d5e6f6;
+
+    --icon-primary: #6d747d;
+    --icon-secondary: #a1a8af;
+    --icon-disabled: #afb5bb;
+    --icon-onColor: #ffffff;
+
+    --critical-primary: #de334a;
+    --critical-background: #f8d3d8;
+    --critical-depressed: #841524;
+    --critical-hover: #b01c30;
+
+    --success-primary: #2d9f66;
+    --success-background: #e7f8f0;
+
+    --text-primary: #303030;
+    --text-secondary: #8d909b;
+    --text-disabled: #91979f;
+    --text-onColor: #ffffff;
+
+    --border-layout: #e0e6f0;
+    --border-element: #bac8de;
+    /* --border-ring: #; */
+    --border-active: #20669f;
+
+    --pool-lr1: #154068;
+    --pool-lr2: #108adb;
+    --pool-mr: #9e3850;
+    --pool-handy: #2d9f66;
+    --pool-ccmr: #baa26d;
+    --pool-city: #666666;
+    --pool-inter: #ebbd00;
+    --pool-small: #e46707;
+    --pool-ccha: #3939ea;
+
+
+    --full-divergent-1: #EB8592;
+    --full-divergent-2: #F49792;
+    --full-divergent-3: #F5AC95;
+    --full-divergent-4: #F5BF95;
+    --full-divergent-5: #FDD471;
+    --full-divergent-6: #C1DB99;
+    --full-divergent-7: #9BCAA5;
+    --full-divergent-8: #66B7A7;
+
+    --divergent-1: #de334a;
+    --divergent-2: #ed524a;
+    --divergent-3: #ee744f;
+    --divergent-4: #ee944f;
+    --divergent-5: #fcb713;
+    --divergent-6: #97c355;
+    --divergent-7: #58a768;
+    --divergent-8: #00876c;
+    --divergent-neutral: #666666;
+
+    --chart-1: #108adb;
+    --chart-2: #e46707;
+    --chart-3: #2d9f66;
+    --chart-4: #e5b800;
+    --chart-5: #9e3850;
+    --chart-6: #baa26d;
+    --chart-7: #3939ea;
+    --chart-8: #808080;
+  }
+
+  .dark {
+    --white: #ffffff;
+    --black: 0 0 0;
+    --brand-primary: #154068;
+    --brand-secondary: #3da5fa;
+    --surface-background: #121212;
+    --surface-layout: #1e1e1e;
+    --surface-muted: #ffffff;
+    --surface-disabled: #717171;
+    --surface-highlight: #ffffff;
+
+    --interactive-primary: #154068;
+    --interactive-background: #d5e6f6;
+    --interactive-depressed: #0f2f4c;
+    --interactive-hover: #0f2f4c;
+
+    --warning-primary: #ebbd00;
+    --warning-background: #f9f5e7;
+
+    --info-primary: #ffffff;
+    --info-background: #ffffff;
+
+    --icon-primary: #8d909b;
+    --icon-secondary: #919191;
+    --icon-disabled: #bac3d2;
+    --icon-onColor: #ffffff;
+
+    --critical-primary: #de334a;
+    --critical-background: #f8d3d8;
+    --critical-depressed: #841524;
+    --critical-hover: #841524;
+
+    --success-primary: #2d9f66;
+    --success-background: #e7f8f0;
+
+    --text-primary: #e1e1e1;
+    --text-secondary: #8d909b;
+    --text-disabled: #bac3d2;
+    --text-onColor: #ffffff;
+
+    --border-layout: #e0e6f0;
+    --border-element: #bac8de;
+    /* --border-ring: #; */
+    --border-active: #20669f;
+
+    --pool-lr1: #154068;
+    --pool-lr2: #108adb;
+    --pool-mr: #9e3850;
+    --pool-handy: #2d9f66;
+    --pool-ccmr: #baa26d;
+    --pool-city: #666666;
+    --pool-inter: #ebbd00;
+    --pool-small: #e46707;
+    --pool-ccha: #3939ea;
+
+    --full-divergent-1: #EB8592;
+    --full-divergent-2: #F49792;
+    --full-divergent-3: #F5AC95;
+    --full-divergent-4: #F5BF95;
+    --full-divergent-5: #FDD471;
+    --full-divergent-6: #C1DB99;
+    --full-divergent-7: #9BCAA5;
+    --full-divergent-8: #66B7A7;
+
+    --divergent-1: #de334a;
+    --divergent-2: #ed524a;
+    --divergent-3: #ee744f;
+    --divergent-4: #ee944f;
+    --divergent-5: #fcb713;
+    --divergent-6: #97c355;
+    --divergent-7: #58a768;
+    --divergent-8: #00876c;
+    --divergent-neutral: #666666;
+
+    --chart-1: #108adb;
+    --chart-2: #e46707;
+    --chart-3: #2d9f66;
+    --chart-4: #e5b800;
+    --chart-5: #9e3850;
+    --chart-6: #baa26d;
+    --chart-7: #3939ea;
+    --chart-8: #808080;
   }
 }
