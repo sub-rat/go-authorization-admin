@@ -2,6 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { dto_Login } from '../models/dto_Login';
+import type { echo_response_Response } from '../models/echo_response_Response';
+import type { models_MenuTree } from '../models/models_MenuTree';
+import type { models_UserInfo } from '../models/models_UserInfo';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -11,10 +14,10 @@ export class PublicService {
 
     /**
      * SysRoutes
-     * @returns string ok
+     * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static getApiV1PublicsSysRoutes(): CancelablePromise<string> {
+    public static getApiV1PublicsSysRoutes(): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/v1/publics/sys/routes',
@@ -27,10 +30,12 @@ export class PublicService {
 
     /**
      * UserInfo
-     * @returns string ok
+     * @returns any ok
      * @throws ApiError
      */
-    public static getApiV1PublicsUser(): CancelablePromise<string> {
+    public static getApiV1PublicsUser(): CancelablePromise<(echo_response_Response & {
+        data?: models_UserInfo;
+    })> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/v1/publics/user',
@@ -44,12 +49,12 @@ export class PublicService {
     /**
      * UserLogin
      * @param data Login
-     * @returns string ok
+     * @returns echo_response_Response ok
      * @throws ApiError
      */
     public static postApiV1PublicsUserLogin(
         data: dto_Login,
-    ): CancelablePromise<string> {
+    ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/v1/publics/user/login',
@@ -63,10 +68,10 @@ export class PublicService {
 
     /**
      * UserLogout
-     * @returns string success
+     * @returns echo_response_Response success
      * @throws ApiError
      */
-    public static postApiV1PublicsUserLogout(): CancelablePromise<string> {
+    public static postApiV1PublicsUserLogout(): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/v1/publics/user/logout',
@@ -75,10 +80,12 @@ export class PublicService {
 
     /**
      * UserMenuTree
-     * @returns string ok
+     * @returns any ok
      * @throws ApiError
      */
-    public static getApiV1PublicsUserMenutree(): CancelablePromise<string> {
+    public static getApiV1PublicsUserMenutree(): CancelablePromise<(echo_response_Response & {
+        data?: Array<models_MenuTree>;
+    })> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/v1/publics/user/menutree',

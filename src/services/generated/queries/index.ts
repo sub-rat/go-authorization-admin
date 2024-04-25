@@ -1,31 +1,22 @@
+'use client'
 // generated with @7nohe/openapi-react-query-codegen@0.5.3 
-import { useQuery, useMutation, UseQueryResult, UseQueryOptions, UseMutationOptions, UseMutationResult } from "@tanstack/react-query";
-import { models_UserRole } from "../requests/models/models_UserRole";
-import { models_UserQueryResult } from "../requests/models/models_UserQueryResult";
-import { models_User } from "../requests/models/models_User";
-import { models_RoleQueryResult } from "../requests/models/models_RoleQueryResult";
-import { models_RoleMenu } from "../requests/models/models_RoleMenu";
-import { models_Role } from "../requests/models/models_Role";
-import { models_MenuQueryResult } from "../requests/models/models_MenuQueryResult";
-import { models_MenuActionResource } from "../requests/models/models_MenuActionResource";
-import { models_MenuAction } from "../requests/models/models_MenuAction";
-import { models_Menu } from "../requests/models/models_Menu";
-import { echo_response_Response } from "../requests/models/echo_response_Response";
-import { dto_Pagination } from "../requests/models/dto_Pagination";
-import { dto_OrderDirection } from "../requests/models/dto_OrderDirection";
+import { UseMutationOptions, UseQueryOptions, UseQueryResult, useMutation, useQuery } from "@tanstack/react-query";
 import { dto_Login } from "../requests/models/dto_Login";
-import { database_Datetime } from "../requests/models/database_Datetime";
-import { UserService } from "../requests/services/UserService";
-import { RoleService } from "../requests/services/RoleService";
-import { PublicService } from "../requests/services/PublicService";
+import { models_Menu } from "../requests/models/models_Menu";
+import { models_MenuAction } from "../requests/models/models_MenuAction";
+import { models_Role } from "../requests/models/models_Role";
+import { models_User } from "../requests/models/models_User";
 import { MenuService } from "../requests/services/MenuService";
-export type UserServiceGetApiUsersDefaultResponse = Awaited<ReturnType<typeof UserService.getApiUsers>>;
-export type UserServiceGetApiUsersQueryResult<TData = UserServiceGetApiUsersDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useUserServiceGetApiUsersKey = "UserServiceGetApiUsers";
+import { PublicService } from "../requests/services/PublicService";
+import { RoleService } from "../requests/services/RoleService";
+import { UserService } from "../requests/services/UserService";
+export type UserServiceGetApiV1UsersDefaultResponse = Awaited<ReturnType<typeof UserService.getApiV1Users>>;
+export type UserServiceGetApiV1UsersQueryResult<TData = UserServiceGetApiV1UsersDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useUserServiceGetApiV1UsersKey = "UserServiceGetApiV1Users";
 /**
  * User Query
  */
-export const useUserServiceGetApiUsers = <TData = UserServiceGetApiUsersDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ current, direction, fullName, key, pageSize, queryPassword, queryValue, roleIDs, status, username }: {
+export const useUserServiceGetApiV1Users = <TData = UserServiceGetApiV1UsersDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ current, direction, fullName, key, pageSize, queryPassword, queryValue, roleIDs, status, username }: {
     current?: number;
     direction?: "ASC" | "DESC";
     fullName?: string;
@@ -36,70 +27,70 @@ export const useUserServiceGetApiUsers = <TData = UserServiceGetApiUsersDefaultR
     roleIDs?: Array<string>;
     status?: number;
     username?: string;
-}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useUserServiceGetApiUsersKey, ...(queryKey ?? [{ current, direction, fullName, key, pageSize, queryPassword, queryValue, roleIDs, status, username }])], queryFn: () => UserService.getApiUsers(current, direction, fullName, key, pageSize, queryPassword, queryValue, roleIDs, status, username) as TData, ...options });
-export type UserServicePostApiUsersMutationResult = Awaited<ReturnType<typeof UserService.postApiUsers>>;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useUserServiceGetApiV1UsersKey, ...(queryKey ?? [{ current, direction, fullName, key, pageSize, queryPassword, queryValue, roleIDs, status, username }])], queryFn: () => UserService.getApiV1Users(current, direction, fullName, key, pageSize, queryPassword, queryValue, roleIDs, status, username) as TData, ...options });
+export type UserServicePostApiV1UsersMutationResult = Awaited<ReturnType<typeof UserService.postApiV1Users>>;
 /**
  * User Create
  */
-export const useUserServicePostApiUsers = <TData = UserServicePostApiUsersMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useUserServicePostApiV1Users = <TData = UserServicePostApiV1UsersMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     data: models_User;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     data: models_User;
-}, TContext>({ mutationFn: ({ data }) => UserService.postApiUsers(data) as unknown as Promise<TData>, ...options });
-export type UserServiceGetApiUsers1DefaultResponse = Awaited<ReturnType<typeof UserService.getApiUsers1>>;
-export type UserServiceGetApiUsers1QueryResult<TData = UserServiceGetApiUsers1DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useUserServiceGetApiUsers1Key = "UserServiceGetApiUsers1";
+}, TContext>({ mutationFn: ({ data }) => UserService.postApiV1Users(data) as unknown as Promise<TData>, ...options });
+export type UserServiceGetApiV1Users1DefaultResponse = Awaited<ReturnType<typeof UserService.getApiV1Users1>>;
+export type UserServiceGetApiV1Users1QueryResult<TData = UserServiceGetApiV1Users1DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useUserServiceGetApiV1Users1Key = "UserServiceGetApiV1Users1";
 /**
  * User Get By ID
  */
-export const useUserServiceGetApiUsers1 = <TData = UserServiceGetApiUsers1DefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ id }: {
+export const useUserServiceGetApiV1Users1 = <TData = UserServiceGetApiV1Users1DefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ id }: {
     id: number;
-}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useUserServiceGetApiUsers1Key, ...(queryKey ?? [{ id }])], queryFn: () => UserService.getApiUsers1(id) as TData, ...options });
-export type UserServicePutApiUsersMutationResult = Awaited<ReturnType<typeof UserService.putApiUsers>>;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useUserServiceGetApiV1Users1Key, ...(queryKey ?? [{ id }])], queryFn: () => UserService.getApiV1Users1(id) as TData, ...options });
+export type UserServicePutApiV1UsersMutationResult = Awaited<ReturnType<typeof UserService.putApiV1Users>>;
 /**
  * User Update By ID
  */
-export const useUserServicePutApiUsers = <TData = UserServicePutApiUsersMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useUserServicePutApiV1Users = <TData = UserServicePutApiV1UsersMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
     data: models_User;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
     data: models_User;
-}, TContext>({ mutationFn: ({ id, data }) => UserService.putApiUsers(id, data) as unknown as Promise<TData>, ...options });
-export type UserServiceDeleteApiUsersMutationResult = Awaited<ReturnType<typeof UserService.deleteApiUsers>>;
+}, TContext>({ mutationFn: ({ id, data }) => UserService.putApiV1Users(id, data) as unknown as Promise<TData>, ...options });
+export type UserServiceDeleteApiV1UsersMutationResult = Awaited<ReturnType<typeof UserService.deleteApiV1Users>>;
 /**
  * User Delete By ID
  */
-export const useUserServiceDeleteApiUsers = <TData = UserServiceDeleteApiUsersMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useUserServiceDeleteApiV1Users = <TData = UserServiceDeleteApiV1UsersMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
-}, TContext>({ mutationFn: ({ id }) => UserService.deleteApiUsers(id) as unknown as Promise<TData>, ...options });
-export type UserServicePatchApiUsersDisableMutationResult = Awaited<ReturnType<typeof UserService.patchApiUsersDisable>>;
+}, TContext>({ mutationFn: ({ id }) => UserService.deleteApiV1Users(id) as unknown as Promise<TData>, ...options });
+export type UserServicePatchApiV1UsersDisableMutationResult = Awaited<ReturnType<typeof UserService.patchApiV1UsersDisable>>;
 /**
  * User Disable By ID
  */
-export const useUserServicePatchApiUsersDisable = <TData = UserServicePatchApiUsersDisableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useUserServicePatchApiV1UsersDisable = <TData = UserServicePatchApiV1UsersDisableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
-}, TContext>({ mutationFn: ({ id }) => UserService.patchApiUsersDisable(id) as unknown as Promise<TData>, ...options });
-export type UserServicePatchApiUsersEnableMutationResult = Awaited<ReturnType<typeof UserService.patchApiUsersEnable>>;
+}, TContext>({ mutationFn: ({ id }) => UserService.patchApiV1UsersDisable(id) as unknown as Promise<TData>, ...options });
+export type UserServicePatchApiV1UsersEnableMutationResult = Awaited<ReturnType<typeof UserService.patchApiV1UsersEnable>>;
 /**
  * User Enable By ID
  */
-export const useUserServicePatchApiUsersEnable = <TData = UserServicePatchApiUsersEnableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useUserServicePatchApiV1UsersEnable = <TData = UserServicePatchApiV1UsersEnableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
-}, TContext>({ mutationFn: ({ id }) => UserService.patchApiUsersEnable(id) as unknown as Promise<TData>, ...options });
-export type RoleServiceGetApiRolesDefaultResponse = Awaited<ReturnType<typeof RoleService.getApiRoles>>;
-export type RoleServiceGetApiRolesQueryResult<TData = RoleServiceGetApiRolesDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useRoleServiceGetApiRolesKey = "RoleServiceGetApiRoles";
+}, TContext>({ mutationFn: ({ id }) => UserService.patchApiV1UsersEnable(id) as unknown as Promise<TData>, ...options });
+export type RoleServiceGetApiV1RolesDefaultResponse = Awaited<ReturnType<typeof RoleService.getApiV1Roles>>;
+export type RoleServiceGetApiV1RolesQueryResult<TData = RoleServiceGetApiV1RolesDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useRoleServiceGetApiV1RolesKey = "RoleServiceGetApiV1Roles";
 /**
  * Role Get All
  */
-export const useRoleServiceGetApiRoles = <TData = RoleServiceGetApiRolesDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ current, direction, ids, key, name, pageSize, queryValue, status, userId }: {
+export const useRoleServiceGetApiV1Roles = <TData = RoleServiceGetApiV1RolesDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ current, direction, ids, key, name, pageSize, queryValue, status, userId }: {
     current?: number;
     direction?: "ASC" | "DESC";
     ids?: Array<string>;
@@ -109,63 +100,63 @@ export const useRoleServiceGetApiRoles = <TData = RoleServiceGetApiRolesDefaultR
     queryValue?: string;
     status?: number;
     userId?: string;
-}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useRoleServiceGetApiRolesKey, ...(queryKey ?? [{ current, direction, ids, key, name, pageSize, queryValue, status, userId }])], queryFn: () => RoleService.getApiRoles(current, direction, ids, key, name, pageSize, queryValue, status, userId) as TData, ...options });
-export type RoleServicePostApiRolesMutationResult = Awaited<ReturnType<typeof RoleService.postApiRoles>>;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useRoleServiceGetApiV1RolesKey, ...(queryKey ?? [{ current, direction, ids, key, name, pageSize, queryValue, status, userId }])], queryFn: () => RoleService.getApiV1Roles(current, direction, ids, key, name, pageSize, queryValue, status, userId) as TData, ...options });
+export type RoleServicePostApiV1RolesMutationResult = Awaited<ReturnType<typeof RoleService.postApiV1Roles>>;
 /**
  * Role Create
  */
-export const useRoleServicePostApiRoles = <TData = RoleServicePostApiRolesMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useRoleServicePostApiV1Roles = <TData = RoleServicePostApiV1RolesMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     data: models_Role;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     data: models_Role;
-}, TContext>({ mutationFn: ({ data }) => RoleService.postApiRoles(data) as unknown as Promise<TData>, ...options });
-export type RoleServiceGetApiRoles1DefaultResponse = Awaited<ReturnType<typeof RoleService.getApiRoles1>>;
-export type RoleServiceGetApiRoles1QueryResult<TData = RoleServiceGetApiRoles1DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useRoleServiceGetApiRoles1Key = "RoleServiceGetApiRoles1";
+}, TContext>({ mutationFn: ({ data }) => RoleService.postApiV1Roles(data) as unknown as Promise<TData>, ...options });
+export type RoleServiceGetApiV1Roles1DefaultResponse = Awaited<ReturnType<typeof RoleService.getApiV1Roles1>>;
+export type RoleServiceGetApiV1Roles1QueryResult<TData = RoleServiceGetApiV1Roles1DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useRoleServiceGetApiV1Roles1Key = "RoleServiceGetApiV1Roles1";
 /**
  * Role Get By ID
  */
-export const useRoleServiceGetApiRoles1 = <TData = RoleServiceGetApiRoles1DefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ id }: {
+export const useRoleServiceGetApiV1Roles1 = <TData = RoleServiceGetApiV1Roles1DefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ id }: {
     id: number;
-}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useRoleServiceGetApiRoles1Key, ...(queryKey ?? [{ id }])], queryFn: () => RoleService.getApiRoles1(id) as TData, ...options });
-export type RoleServicePutApiRolesMutationResult = Awaited<ReturnType<typeof RoleService.putApiRoles>>;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useRoleServiceGetApiV1Roles1Key, ...(queryKey ?? [{ id }])], queryFn: () => RoleService.getApiV1Roles1(id) as TData, ...options });
+export type RoleServicePutApiV1RolesMutationResult = Awaited<ReturnType<typeof RoleService.putApiV1Roles>>;
 /**
  * Role Update By ID
  */
-export const useRoleServicePutApiRoles = <TData = RoleServicePutApiRolesMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useRoleServicePutApiV1Roles = <TData = RoleServicePutApiV1RolesMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
     data: models_Role;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
     data: models_Role;
-}, TContext>({ mutationFn: ({ id, data }) => RoleService.putApiRoles(id, data) as unknown as Promise<TData>, ...options });
-export type RoleServiceDeleteApiRolesMutationResult = Awaited<ReturnType<typeof RoleService.deleteApiRoles>>;
+}, TContext>({ mutationFn: ({ id, data }) => RoleService.putApiV1Roles(id, data) as unknown as Promise<TData>, ...options });
+export type RoleServiceDeleteApiV1RolesMutationResult = Awaited<ReturnType<typeof RoleService.deleteApiV1Roles>>;
 /**
  * Role Delete By ID
  */
-export const useRoleServiceDeleteApiRoles = <TData = RoleServiceDeleteApiRolesMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useRoleServiceDeleteApiV1Roles = <TData = RoleServiceDeleteApiV1RolesMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
-}, TContext>({ mutationFn: ({ id }) => RoleService.deleteApiRoles(id) as unknown as Promise<TData>, ...options });
-export type RoleServicePatchApiRolesDisableMutationResult = Awaited<ReturnType<typeof RoleService.patchApiRolesDisable>>;
+}, TContext>({ mutationFn: ({ id }) => RoleService.deleteApiV1Roles(id) as unknown as Promise<TData>, ...options });
+export type RoleServicePatchApiV1RolesDisableMutationResult = Awaited<ReturnType<typeof RoleService.patchApiV1RolesDisable>>;
 /**
  * Role Disable By ID
  */
-export const useRoleServicePatchApiRolesDisable = <TData = RoleServicePatchApiRolesDisableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useRoleServicePatchApiV1RolesDisable = <TData = RoleServicePatchApiV1RolesDisableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
-}, TContext>({ mutationFn: ({ id }) => RoleService.patchApiRolesDisable(id) as unknown as Promise<TData>, ...options });
-export type RoleServicePatchApiRolesEnableMutationResult = Awaited<ReturnType<typeof RoleService.patchApiRolesEnable>>;
+}, TContext>({ mutationFn: ({ id }) => RoleService.patchApiV1RolesDisable(id) as unknown as Promise<TData>, ...options });
+export type RoleServicePatchApiV1RolesEnableMutationResult = Awaited<ReturnType<typeof RoleService.patchApiV1RolesEnable>>;
 /**
  * Role Enable By ID
  */
-export const useRoleServicePatchApiRolesEnable = <TData = RoleServicePatchApiRolesEnableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useRoleServicePatchApiV1RolesEnable = <TData = RoleServicePatchApiV1RolesEnableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
-}, TContext>({ mutationFn: ({ id }) => RoleService.patchApiRolesEnable(id) as unknown as Promise<TData>, ...options });
+}, TContext>({ mutationFn: ({ id }) => RoleService.patchApiV1RolesEnable(id) as unknown as Promise<TData>, ...options });
 export type PublicServiceGetApiV1PublicsSysRoutesDefaultResponse = Awaited<ReturnType<typeof PublicService.getApiV1PublicsSysRoutes>>;
 export type PublicServiceGetApiV1PublicsSysRoutesQueryResult<TData = PublicServiceGetApiV1PublicsSysRoutesDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
 export const usePublicServiceGetApiV1PublicsSysRoutesKey = "PublicServiceGetApiV1PublicsSysRoutes";
@@ -201,13 +192,13 @@ export const usePublicServiceGetApiV1PublicsUserMenutreeKey = "PublicServiceGetA
  * UserMenuTree
  */
 export const usePublicServiceGetApiV1PublicsUserMenutree = <TData = PublicServiceGetApiV1PublicsUserMenutreeDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>(queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [usePublicServiceGetApiV1PublicsUserMenutreeKey, ...(queryKey ?? [])], queryFn: () => PublicService.getApiV1PublicsUserMenutree() as TData, ...options });
-export type MenuServiceGetApiMenusDefaultResponse = Awaited<ReturnType<typeof MenuService.getApiMenus>>;
-export type MenuServiceGetApiMenusQueryResult<TData = MenuServiceGetApiMenusDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useMenuServiceGetApiMenusKey = "MenuServiceGetApiMenus";
+export type MenuServiceGetApiV1MenusDefaultResponse = Awaited<ReturnType<typeof MenuService.getApiV1Menus>>;
+export type MenuServiceGetApiV1MenusQueryResult<TData = MenuServiceGetApiV1MenusDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useMenuServiceGetApiV1MenusKey = "MenuServiceGetApiV1Menus";
 /**
  * Menu Query
  */
-export const useMenuServiceGetApiMenus = <TData = MenuServiceGetApiMenusDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ current, direction, hidden, ids, includeActions, key, name, pageSize, parentId, prefixParentPath, queryValue, status, tree }: {
+export const useMenuServiceGetApiV1Menus = <TData = MenuServiceGetApiV1MenusDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ current, direction, hidden, ids, includeActions, key, name, pageSize, parentId, prefixParentPath, queryValue, status, tree }: {
     current?: number;
     direction?: "ASC" | "DESC";
     hidden?: number;
@@ -221,80 +212,80 @@ export const useMenuServiceGetApiMenus = <TData = MenuServiceGetApiMenusDefaultR
     queryValue?: string;
     status?: number;
     tree?: boolean;
-}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useMenuServiceGetApiMenusKey, ...(queryKey ?? [{ current, direction, hidden, ids, includeActions, key, name, pageSize, parentId, prefixParentPath, queryValue, status, tree }])], queryFn: () => MenuService.getApiMenus(current, direction, hidden, ids, includeActions, key, name, pageSize, parentId, prefixParentPath, queryValue, status, tree) as TData, ...options });
-export type MenuServicePostApiMenusMutationResult = Awaited<ReturnType<typeof MenuService.postApiMenus>>;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useMenuServiceGetApiV1MenusKey, ...(queryKey ?? [{ current, direction, hidden, ids, includeActions, key, name, pageSize, parentId, prefixParentPath, queryValue, status, tree }])], queryFn: () => MenuService.getApiV1Menus(current, direction, hidden, ids, includeActions, key, name, pageSize, parentId, prefixParentPath, queryValue, status, tree) as TData, ...options });
+export type MenuServicePostApiV1MenusMutationResult = Awaited<ReturnType<typeof MenuService.postApiV1Menus>>;
 /**
  * Menu Create
  */
-export const useMenuServicePostApiMenus = <TData = MenuServicePostApiMenusMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useMenuServicePostApiV1Menus = <TData = MenuServicePostApiV1MenusMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     data: models_Menu;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     data: models_Menu;
-}, TContext>({ mutationFn: ({ data }) => MenuService.postApiMenus(data) as unknown as Promise<TData>, ...options });
-export type MenuServiceGetApiMenus1DefaultResponse = Awaited<ReturnType<typeof MenuService.getApiMenus1>>;
-export type MenuServiceGetApiMenus1QueryResult<TData = MenuServiceGetApiMenus1DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useMenuServiceGetApiMenus1Key = "MenuServiceGetApiMenus1";
+}, TContext>({ mutationFn: ({ data }) => MenuService.postApiV1Menus(data) as unknown as Promise<TData>, ...options });
+export type MenuServiceGetApiV1Menus1DefaultResponse = Awaited<ReturnType<typeof MenuService.getApiV1Menus1>>;
+export type MenuServiceGetApiV1Menus1QueryResult<TData = MenuServiceGetApiV1Menus1DefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useMenuServiceGetApiV1Menus1Key = "MenuServiceGetApiV1Menus1";
 /**
  * Menu Get By ID
  */
-export const useMenuServiceGetApiMenus1 = <TData = MenuServiceGetApiMenus1DefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ id }: {
+export const useMenuServiceGetApiV1Menus1 = <TData = MenuServiceGetApiV1Menus1DefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ id }: {
     id: number;
-}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useMenuServiceGetApiMenus1Key, ...(queryKey ?? [{ id }])], queryFn: () => MenuService.getApiMenus1(id) as TData, ...options });
-export type MenuServicePutApiMenusMutationResult = Awaited<ReturnType<typeof MenuService.putApiMenus>>;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useMenuServiceGetApiV1Menus1Key, ...(queryKey ?? [{ id }])], queryFn: () => MenuService.getApiV1Menus1(id) as TData, ...options });
+export type MenuServicePutApiV1MenusMutationResult = Awaited<ReturnType<typeof MenuService.putApiV1Menus>>;
 /**
  * Menu Update By ID
  */
-export const useMenuServicePutApiMenus = <TData = MenuServicePutApiMenusMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useMenuServicePutApiV1Menus = <TData = MenuServicePutApiV1MenusMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
     data: models_Menu;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
     data: models_Menu;
-}, TContext>({ mutationFn: ({ id, data }) => MenuService.putApiMenus(id, data) as unknown as Promise<TData>, ...options });
-export type MenuServiceDeleteApiMenusMutationResult = Awaited<ReturnType<typeof MenuService.deleteApiMenus>>;
+}, TContext>({ mutationFn: ({ id, data }) => MenuService.putApiV1Menus(id, data) as unknown as Promise<TData>, ...options });
+export type MenuServiceDeleteApiV1MenusMutationResult = Awaited<ReturnType<typeof MenuService.deleteApiV1Menus>>;
 /**
  * Menu Delete By ID
  */
-export const useMenuServiceDeleteApiMenus = <TData = MenuServiceDeleteApiMenusMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useMenuServiceDeleteApiV1Menus = <TData = MenuServiceDeleteApiV1MenusMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
-}, TContext>({ mutationFn: ({ id }) => MenuService.deleteApiMenus(id) as unknown as Promise<TData>, ...options });
-export type MenuServiceGetApiMenusActionsDefaultResponse = Awaited<ReturnType<typeof MenuService.getApiMenusActions>>;
-export type MenuServiceGetApiMenusActionsQueryResult<TData = MenuServiceGetApiMenusActionsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
-export const useMenuServiceGetApiMenusActionsKey = "MenuServiceGetApiMenusActions";
+}, TContext>({ mutationFn: ({ id }) => MenuService.deleteApiV1Menus(id) as unknown as Promise<TData>, ...options });
+export type MenuServiceGetApiV1MenusActionsDefaultResponse = Awaited<ReturnType<typeof MenuService.getApiV1MenusActions>>;
+export type MenuServiceGetApiV1MenusActionsQueryResult<TData = MenuServiceGetApiV1MenusActionsDefaultResponse, TError = unknown> = UseQueryResult<TData, TError>;
+export const useMenuServiceGetApiV1MenusActionsKey = "MenuServiceGetApiV1MenusActions";
 /**
  * MenuActions Get By menuID
  */
-export const useMenuServiceGetApiMenusActions = <TData = MenuServiceGetApiMenusActionsDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ id }: {
+export const useMenuServiceGetApiV1MenusActions = <TData = MenuServiceGetApiV1MenusActionsDefaultResponse, TError = unknown, TQueryKey extends Array<unknown> = unknown[]>({ id }: {
     id: number;
-}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useMenuServiceGetApiMenusActionsKey, ...(queryKey ?? [{ id }])], queryFn: () => MenuService.getApiMenusActions(id) as TData, ...options });
-export type MenuServicePutApiMenusActionsMutationResult = Awaited<ReturnType<typeof MenuService.putApiMenusActions>>;
+}, queryKey?: TQueryKey, options?: Omit<UseQueryOptions<TData, TError>, "queryKey" | "queryFn" | "initialData">) => useQuery<TData, TError>({ queryKey: [useMenuServiceGetApiV1MenusActionsKey, ...(queryKey ?? [{ id }])], queryFn: () => MenuService.getApiV1MenusActions(id) as TData, ...options });
+export type MenuServicePutApiV1MenusActionsMutationResult = Awaited<ReturnType<typeof MenuService.putApiV1MenusActions>>;
 /**
  * Menu Actions Update By menuID
  */
-export const useMenuServicePutApiMenusActions = <TData = MenuServicePutApiMenusActionsMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useMenuServicePutApiV1MenusActions = <TData = MenuServicePutApiV1MenusActionsMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
     data: Array<models_MenuAction>;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
     data: Array<models_MenuAction>;
-}, TContext>({ mutationFn: ({ id, data }) => MenuService.putApiMenusActions(id, data) as unknown as Promise<TData>, ...options });
-export type MenuServicePatchApiMenusDisableMutationResult = Awaited<ReturnType<typeof MenuService.patchApiMenusDisable>>;
+}, TContext>({ mutationFn: ({ id, data }) => MenuService.putApiV1MenusActions(id, data) as unknown as Promise<TData>, ...options });
+export type MenuServicePatchApiV1MenusDisableMutationResult = Awaited<ReturnType<typeof MenuService.patchApiV1MenusDisable>>;
 /**
  * Menu Disable By ID
  */
-export const useMenuServicePatchApiMenusDisable = <TData = MenuServicePatchApiMenusDisableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useMenuServicePatchApiV1MenusDisable = <TData = MenuServicePatchApiV1MenusDisableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
-}, TContext>({ mutationFn: ({ id }) => MenuService.patchApiMenusDisable(id) as unknown as Promise<TData>, ...options });
-export type MenuServicePatchApiMenusEnableMutationResult = Awaited<ReturnType<typeof MenuService.patchApiMenusEnable>>;
+}, TContext>({ mutationFn: ({ id }) => MenuService.patchApiV1MenusDisable(id) as unknown as Promise<TData>, ...options });
+export type MenuServicePatchApiV1MenusEnableMutationResult = Awaited<ReturnType<typeof MenuService.patchApiV1MenusEnable>>;
 /**
  * Menu Enable By ID
  */
-export const useMenuServicePatchApiMenusEnable = <TData = MenuServicePatchApiMenusEnableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
+export const useMenuServicePatchApiV1MenusEnable = <TData = MenuServicePatchApiV1MenusEnableMutationResult, TError = unknown, TContext = unknown>(options?: Omit<UseMutationOptions<TData, TError, {
     id: number;
 }, TContext>, "mutationFn">) => useMutation<TData, TError, {
     id: number;
-}, TContext>({ mutationFn: ({ id }) => MenuService.patchApiMenusEnable(id) as unknown as Promise<TData>, ...options });
+}, TContext>({ mutationFn: ({ id }) => MenuService.patchApiV1MenusEnable(id) as unknown as Promise<TData>, ...options });

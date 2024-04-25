@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import { AppConfig } from '../../../../config';
 import type { ApiRequestOptions } from './ApiRequestOptions';
 
 type Resolver<T> = (options: ApiRequestOptions) => Promise<T>;
@@ -18,13 +19,8 @@ export type OpenAPIConfig = {
     ENCODE_PATH?: (path: string) => string;
 };
 
-const baseUrl=(typeof window !== 'undefined' && localStorage?.getItem('url')) ||
-(process.env.NEXT_PUBLIC_API_URL
-  ? `${process.env.NEXT_PUBLIC_API_URL}`
-  : typeof window !== 'undefined' && `${window?.location.origin}`);
-
 export const OpenAPI: OpenAPIConfig = {
-    BASE: baseUrl?baseUrl:'',
+    BASE: AppConfig.BASE_URL||'',
     VERSION: '1.0',
     WITH_CREDENTIALS: false,
     CREDENTIALS: 'include',

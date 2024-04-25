@@ -30,7 +30,7 @@ export class MenuService {
      * @returns any ok
      * @throws ApiError
      */
-    public static getApiMenus(
+    public static getApiV1Menus(
         current?: number,
         direction?: 'ASC' | 'DESC',
         hidden?: number,
@@ -49,7 +49,7 @@ export class MenuService {
     })> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/menus',
+            url: '/api/v1/menus',
             query: {
                 'current': current,
                 'direction': direction,
@@ -78,12 +78,12 @@ export class MenuService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static postApiMenus(
+    public static postApiV1Menus(
         data: models_Menu,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/api/menus',
+            url: '/api/v1/menus',
             body: data,
             errors: {
                 400: `bad request`,
@@ -98,14 +98,14 @@ export class MenuService {
      * @returns any ok
      * @throws ApiError
      */
-    public static getApiMenus1(
+    public static getApiV1Menus1(
         id: number,
     ): CancelablePromise<(echo_response_Response & {
         data?: models_Menu;
     })> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/menus/{id}',
+            url: '/api/v1/menus/{id}',
             path: {
                 'id': id,
             },
@@ -123,13 +123,13 @@ export class MenuService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static putApiMenus(
+    public static putApiV1Menus(
         id: number,
         data: models_Menu,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/api/menus/{id}',
+            url: '/api/v1/menus/{id}',
             path: {
                 'id': id,
             },
@@ -147,12 +147,12 @@ export class MenuService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static deleteApiMenus(
+    public static deleteApiV1Menus(
         id: number,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/api/menus/{id}',
+            url: '/api/v1/menus/{id}',
             path: {
                 'id': id,
             },
@@ -169,14 +169,14 @@ export class MenuService {
      * @returns any ok
      * @throws ApiError
      */
-    public static getApiMenusActions(
+    public static getApiV1MenusActions(
         id: number,
     ): CancelablePromise<(echo_response_Response & {
         data?: Array<models_MenuAction>;
     })> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/menus/{id}/actions',
+            url: '/api/v1/menus/{id}/actions',
             path: {
                 'id': id,
             },
@@ -194,13 +194,13 @@ export class MenuService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static putApiMenusActions(
+    public static putApiV1MenusActions(
         id: number,
         data: Array<models_MenuAction>,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/api/menus/{id}/actions',
+            url: '/api/v1/menus/{id}/actions',
             path: {
                 'id': id,
             },
@@ -218,12 +218,12 @@ export class MenuService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static patchApiMenusDisable(
+    public static patchApiV1MenusDisable(
         id: number,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PATCH',
-            url: '/api/menus/{id}/disable',
+            url: '/api/v1/menus/{id}/disable',
             path: {
                 'id': id,
             },
@@ -240,12 +240,12 @@ export class MenuService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static patchApiMenusEnable(
+    public static patchApiV1MenusEnable(
         id: number,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PATCH',
-            url: '/api/menus/{id}/enable',
+            url: '/api/v1/menus/{id}/enable',
             path: {
                 'id': id,
             },

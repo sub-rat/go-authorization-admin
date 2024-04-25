@@ -26,7 +26,7 @@ export class UserService {
      * @returns any ok
      * @throws ApiError
      */
-    public static getApiUsers(
+    public static getApiV1Users(
         current?: number,
         direction?: 'ASC' | 'DESC',
         fullName?: string,
@@ -42,7 +42,7 @@ export class UserService {
     })> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/users',
+            url: '/api/v1/users',
             query: {
                 'current': current,
                 'direction': direction,
@@ -68,12 +68,12 @@ export class UserService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static postApiUsers(
+    public static postApiV1Users(
         data: models_User,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/api/users',
+            url: '/api/v1/users',
             body: data,
             errors: {
                 400: `bad request`,
@@ -88,14 +88,14 @@ export class UserService {
      * @returns any ok
      * @throws ApiError
      */
-    public static getApiUsers1(
+    public static getApiV1Users1(
         id: number,
     ): CancelablePromise<(echo_response_Response & {
         data?: models_User;
     })> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/users/{id}',
+            url: '/api/v1/users/{id}',
             path: {
                 'id': id,
             },
@@ -113,13 +113,13 @@ export class UserService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static putApiUsers(
+    public static putApiV1Users(
         id: number,
         data: models_User,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/api/users/{id}',
+            url: '/api/v1/users/{id}',
             path: {
                 'id': id,
             },
@@ -137,12 +137,12 @@ export class UserService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static deleteApiUsers(
+    public static deleteApiV1Users(
         id: number,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/api/users/{id}',
+            url: '/api/v1/users/{id}',
             path: {
                 'id': id,
             },
@@ -159,12 +159,12 @@ export class UserService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static patchApiUsersDisable(
+    public static patchApiV1UsersDisable(
         id: number,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PATCH',
-            url: '/api/users/{id}/disable',
+            url: '/api/v1/users/{id}/disable',
             path: {
                 'id': id,
             },
@@ -181,12 +181,12 @@ export class UserService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static patchApiUsersEnable(
+    public static patchApiV1UsersEnable(
         id: number,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PATCH',
-            url: '/api/users/{id}/enable',
+            url: '/api/v1/users/{id}/enable',
             path: {
                 'id': id,
             },

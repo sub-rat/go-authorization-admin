@@ -24,7 +24,7 @@ export class RoleService {
      * @returns any ok
      * @throws ApiError
      */
-    public static getApiRoles(
+    public static getApiV1Roles(
         current?: number,
         direction?: 'ASC' | 'DESC',
         ids?: Array<string>,
@@ -39,7 +39,7 @@ export class RoleService {
     })> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/roles',
+            url: '/api/v1/roles',
             query: {
                 'current': current,
                 'direction': direction,
@@ -64,12 +64,12 @@ export class RoleService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static postApiRoles(
+    public static postApiV1Roles(
         data: models_Role,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/api/roles',
+            url: '/api/v1/roles',
             body: data,
             errors: {
                 400: `bad request`,
@@ -84,14 +84,14 @@ export class RoleService {
      * @returns any ok
      * @throws ApiError
      */
-    public static getApiRoles1(
+    public static getApiV1Roles1(
         id: number,
     ): CancelablePromise<(echo_response_Response & {
         data?: models_Role;
     })> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/roles/{id}',
+            url: '/api/v1/roles/{id}',
             path: {
                 'id': id,
             },
@@ -109,13 +109,13 @@ export class RoleService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static putApiRoles(
+    public static putApiV1Roles(
         id: number,
         data: models_Role,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/api/roles/{id}',
+            url: '/api/v1/roles/{id}',
             path: {
                 'id': id,
             },
@@ -133,12 +133,12 @@ export class RoleService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static deleteApiRoles(
+    public static deleteApiV1Roles(
         id: number,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/api/roles/{id}',
+            url: '/api/v1/roles/{id}',
             path: {
                 'id': id,
             },
@@ -155,12 +155,12 @@ export class RoleService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static patchApiRolesDisable(
+    public static patchApiV1RolesDisable(
         id: number,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PATCH',
-            url: '/api/roles/{id}/disable',
+            url: '/api/v1/roles/{id}/disable',
             path: {
                 'id': id,
             },
@@ -177,12 +177,12 @@ export class RoleService {
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static patchApiRolesEnable(
+    public static patchApiV1RolesEnable(
         id: number,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PATCH',
-            url: '/api/roles/{id}/enable',
+            url: '/api/v1/roles/{id}/enable',
             path: {
                 'id': id,
             },
