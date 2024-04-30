@@ -1,12 +1,8 @@
-'use client'
-import Image from "next/image";
-import { useMenuServiceGetApiV1Menus } from "../services/generated/queries";
+"use client"
+import Image from "next/image"
 
 export default function Home() {
-  const { data } = useMenuServiceGetApiV1Menus({
-
-  })
-  console.log({ data });
+  // const { data } = useMenuServiceGetApiV1Menus({})
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -116,5 +112,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  );
+  )
 }
