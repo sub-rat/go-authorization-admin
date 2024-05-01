@@ -3,7 +3,6 @@
 /* eslint-disable */
 
 export type dto_Login = {
-    password: string;
-    username: string;
-};
-
+  password: string
+  username: string
+}

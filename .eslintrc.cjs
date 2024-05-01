@@ -1,9 +1,8 @@
 module.exports = {
   extends: [
     "prettier",
-    "plugin:react/recommended",
+    "next",
     "plugin:@typescript-eslint/recommended",
-    "plugin:storybook/recommended",
   ],
   ignorePatterns: [
     "node_modules",
@@ -16,18 +15,19 @@ module.exports = {
     "tailwind.config.js",
     "src/**/*.js",
   ],
-  plugins: ["react"],
+  plugins: ['unused-imports', 'simple-import-sort'],
   parserOptions: {
-    parser: "@typescript-eslint/parser",
-    project: "./tsconfig.json",
+    parser: '@typescript-eslint/parser',
+    tsconfigRootDir: __dirname,
+    project: './tsconfig.json',
   },
   root: true,
-  settings: {
-    // Add this section
-    react: {
-      version: "detect", // Automatically detect the version of React
-    },
-  },
+  // settings: {
+  //   // Add this section
+  //   react: {
+  //     version: "detect", // Automatically detect the version of React
+  //   },
+  // },
   rules: {
     "@typescript-eslint/no-unused-vars": [
       "error",
@@ -38,6 +38,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "react/prop-types": "off",
     // temporary disable end
+    "react-hooks/exhaustive-deps": "off",
     "no-param-reassign": "off",
     "no-underscore-dangle": "off",
     "no-restricted-syntax": "off",
@@ -52,11 +53,25 @@ module.exports = {
     "no-nested-ternary": "error",
     "testing-library/prefer-screen-queries": "off",
     "react/no-unescaped-entities": "off",
-    "react/function-component-definition": [
-      "error",
+    'simple-import-sort/imports': [
+      'warn',
       {
-        namedComponents: "arrow-function",
-        unnamedComponents: "arrow-function",
+        groups: [
+          // Packages 'react' related packages come first.
+          ['^react', '^next', '^@?\\w'],
+          ['^@/'],
+          [
+            '^\\./?$',
+            '^\\.(?!/?$)',
+            '^\\.\\./?$',
+            '^\\.\\.(?!/?$)',
+            '^\\.\\./\\.\\./?$',
+            '^\\.\\./\\.\\.(?!/?$)',
+            '^\\.\\./\\.\\./\\.\\./?$',
+            '^\\.\\./\\.\\./\\.\\.(?!/?$)',
+          ],
+          // relative paths up until 3 levels
+        ],
       },
     ],
   },
