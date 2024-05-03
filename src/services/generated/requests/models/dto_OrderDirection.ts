@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export enum dto_OrderDirection {
-  OrderByASC = "ASC",
-  OrderByDESC = "DESC",
+    OrderByASC = 'ASC',
+    OrderByDESC = 'DESC',
 }
