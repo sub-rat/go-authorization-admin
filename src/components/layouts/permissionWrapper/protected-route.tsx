@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { redirect, usePathname, useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
 
 import { ROUTES } from "@/constants/ROUTES"
 
@@ -17,9 +17,10 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true)
   //   const ability = useAbilityContext()
   const pathIsProtected = UNPROTECTED_ROUTES.indexOf(pathname) === -1
-  const { isLoading: userLoading } = usePublicServiceGetApiV1PublicsUser()
+  const { data, isError, isLoading: userLoading } = usePublicServiceGetApiV1PublicsUser()
 
   useEffect(() => {
+
     if (
       isBrowser() &&
       !localStorage.getItem("token") &&
@@ -31,6 +32,7 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
       redirect(ROUTES.LOGIN)
     } else if (isBrowser() && pathIsProtected) {
       setIsLoading(false)
+      // redirect(ROUTES.DASHBOARD)
       // useAbilityContext(ability,data?.data)
       // console.log({ data });
 
