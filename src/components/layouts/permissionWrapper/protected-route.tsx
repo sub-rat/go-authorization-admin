@@ -18,7 +18,6 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   //   const ability = useAbilityContext()
   const pathIsProtected = UNPROTECTED_ROUTES.indexOf(pathname) === -1
   const { data, isError, isLoading: userLoading } = usePublicServiceGetApiV1PublicsUser()
-  console.log({ data });
 
   useEffect(() => {
 

@@ -120,7 +120,7 @@ const Role = () => {
                                 rolesList?.length > 0 && (
                                     optionData?.list?.filter(item => rolesList.includes(item.id)).map((e) => {
                                         return (
-                                            <div className="flex flex-col gap-1">
+                                            <div className="flex flex-col gap-1" key={e.id}>
                                                 <p>
                                                     {e.name}
                                                 </p>

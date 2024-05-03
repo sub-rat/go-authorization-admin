@@ -81,7 +81,6 @@ const User = () => {
                     footerLeft={
                         <Button
                             onClick={methods.handleSubmit(async (data) => {
-                                console.log({ data });
 
                                 mutate(
                                     {
