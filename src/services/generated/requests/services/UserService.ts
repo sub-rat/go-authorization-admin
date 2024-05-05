@@ -89,7 +89,7 @@ export class UserService {
      * @throws ApiError
      */
     public static getApiV1Users1(
-        id: number,
+        id: string,
     ): CancelablePromise<(echo_response_Response & {
         data?: models_User;
     })> {
@@ -114,7 +114,7 @@ export class UserService {
      * @throws ApiError
      */
     public static putApiV1Users(
-        id: number,
+        id: string,
         data: models_User,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
@@ -138,7 +138,7 @@ export class UserService {
      * @throws ApiError
      */
     public static deleteApiV1Users(
-        id: number,
+        id: string,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'DELETE',
@@ -160,7 +160,7 @@ export class UserService {
      * @throws ApiError
      */
     public static patchApiV1UsersDisable(
-        id: number,
+        id: string,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PATCH',
@@ -182,7 +182,7 @@ export class UserService {
      * @throws ApiError
      */
     public static patchApiV1UsersEnable(
-        id: number,
+        id: string,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PATCH',

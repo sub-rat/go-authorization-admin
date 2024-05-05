@@ -7,10 +7,16 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { database_Datetime } from './models/database_Datetime';
+export type { dto_AstrologerCreate } from './models/dto_AstrologerCreate';
+export type { dto_CustomerCreate } from './models/dto_CustomerCreate';
 export type { dto_Login } from './models/dto_Login';
 export { dto_OrderDirection } from './models/dto_OrderDirection';
 export type { dto_Pagination } from './models/dto_Pagination';
 export type { echo_response_Response } from './models/echo_response_Response';
+export type { models_Astrologer } from './models/models_Astrologer';
+export type { models_AstrologerQueryResult } from './models/models_AstrologerQueryResult';
+export type { models_Customer } from './models/models_Customer';
+export type { models_CustomerQueryResult } from './models/models_CustomerQueryResult';
 export type { models_Menu } from './models/models_Menu';
 export type { models_MenuAction } from './models/models_MenuAction';
 export type { models_MenuActionResource } from './models/models_MenuActionResource';
@@ -25,6 +31,8 @@ export type { models_UserInfo } from './models/models_UserInfo';
 export type { models_UserQueryResult } from './models/models_UserQueryResult';
 export type { models_UserRole } from './models/models_UserRole';
 
+export { AstrologerService } from './services/AstrologerService';
+export { CustomerService } from './services/CustomerService';
 export { MenuService } from './services/MenuService';
 export { PublicService } from './services/PublicService';
 export { RoleService } from './services/RoleService';

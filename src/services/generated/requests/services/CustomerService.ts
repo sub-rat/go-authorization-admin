@@ -1,55 +1,51 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { dto_CustomerCreate } from '../models/dto_CustomerCreate';
 import type { echo_response_Response } from '../models/echo_response_Response';
-import type { models_Role } from '../models/models_Role';
+import type { models_Customer } from '../models/models_Customer';
+import type { models_CustomerQueryResult } from '../models/models_CustomerQueryResult';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 
-export class RoleService {
+export class CustomerService {
 
     /**
-     * Role Get All
+     * Customer Query
+     * @param address
      * @param current
      * @param direction
-     * @param ids
+     * @param fullName
      * @param key
-     * @param name
      * @param pageSize
      * @param queryValue
-     * @param status
-     * @param userId
      * @returns any ok
      * @throws ApiError
      */
-    public static getApiV1Roles(
+    public static getApiV1Customers(
+        address?: string,
         current?: number,
         direction?: 'ASC' | 'DESC',
-        ids?: Array<string>,
+        fullName?: string,
         key?: string,
-        name?: string,
         pageSize?: number,
         queryValue?: string,
-        status?: number,
-        userId?: string,
     ): CancelablePromise<(echo_response_Response & {
-        data?: Array<models_Role>;
+        data?: models_CustomerQueryResult;
     })> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/v1/roles',
+            url: '/api/v1/customers',
             query: {
+                'address': address,
                 'current': current,
                 'direction': direction,
-                'ids': ids,
+                'fullName': fullName,
                 'key': key,
-                'name': name,
                 'pageSize': pageSize,
                 'queryValue': queryValue,
-                'status': status,
-                'userID': userId,
             },
             errors: {
                 400: `bad request`,
@@ -59,17 +55,17 @@ export class RoleService {
     }
 
     /**
-     * Role Create
-     * @param data Role
+     * Customer Create
+     * @param data Customer
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static postApiV1Roles(
-        data: models_Role,
+    public static postApiV1Customers(
+        data: dto_CustomerCreate,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: '/api/v1/roles',
+            url: '/api/v1/customers',
             body: data,
             errors: {
                 400: `bad request`,
@@ -79,19 +75,19 @@ export class RoleService {
     }
 
     /**
-     * Role Get By ID
-     * @param id role id
+     * Customer Get By ID
+     * @param id customer id
      * @returns any ok
      * @throws ApiError
      */
-    public static getApiV1Roles1(
+    public static getApiV1Customers1(
         id: string,
     ): CancelablePromise<(echo_response_Response & {
-        data?: models_Role;
+        data?: models_Customer;
     })> {
         return __request(OpenAPI, {
             method: 'GET',
-            url: '/api/v1/roles/{id}',
+            url: '/api/v1/customers/{id}',
             path: {
                 'id': id,
             },
@@ -103,19 +99,19 @@ export class RoleService {
     }
 
     /**
-     * Role Update By ID
-     * @param id role id
-     * @param data Role
+     * Customer Update By ID
+     * @param id customer id
+     * @param data Customer
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static putApiV1Roles(
+    public static putApiV1Customers(
         id: string,
-        data: models_Role,
+        data: models_Customer,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'PUT',
-            url: '/api/v1/roles/{id}',
+            url: '/api/v1/customers/{id}',
             path: {
                 'id': id,
             },
@@ -128,61 +124,17 @@ export class RoleService {
     }
 
     /**
-     * Role Delete By ID
-     * @param id role id
+     * Customer Delete By ID
+     * @param id customer id
      * @returns echo_response_Response ok
      * @throws ApiError
      */
-    public static deleteApiV1Roles(
+    public static deleteApiV1Customers(
         id: string,
     ): CancelablePromise<echo_response_Response> {
         return __request(OpenAPI, {
             method: 'DELETE',
-            url: '/api/v1/roles/{id}',
-            path: {
-                'id': id,
-            },
-            errors: {
-                400: `bad request`,
-                500: `internal error`,
-            },
-        });
-    }
-
-    /**
-     * Role Disable By ID
-     * @param id role id
-     * @returns echo_response_Response ok
-     * @throws ApiError
-     */
-    public static patchApiV1RolesDisable(
-        id: string,
-    ): CancelablePromise<echo_response_Response> {
-        return __request(OpenAPI, {
-            method: 'PATCH',
-            url: '/api/v1/roles/{id}/disable',
-            path: {
-                'id': id,
-            },
-            errors: {
-                400: `bad request`,
-                500: `internal error`,
-            },
-        });
-    }
-
-    /**
-     * Role Enable By ID
-     * @param id role id
-     * @returns echo_response_Response ok
-     * @throws ApiError
-     */
-    public static patchApiV1RolesEnable(
-        id: string,
-    ): CancelablePromise<echo_response_Response> {
-        return __request(OpenAPI, {
-            method: 'PATCH',
-            url: '/api/v1/roles/{id}/enable',
+            url: '/api/v1/customers/{id}',
             path: {
                 'id': id,
             },
