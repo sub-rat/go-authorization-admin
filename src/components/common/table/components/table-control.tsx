@@ -1,14 +1,14 @@
+import { useCallback, useRef, useState } from "react"
 import { Popover, PopoverTrigger } from "@radix-ui/react-popover"
 import { GroupingState, Table } from "@tanstack/table-core"
 import { debounce } from "lodash"
-import { useCallback, useRef, useState } from "react"
 
-import { cn } from "../../../utils/cn"
+import { TableProps } from "../table.types"
 import { Button } from "../../button/Button"
 import { Chips } from "../../button/Chips"
 import { Icon } from "../../icon"
 import { PopoverContent } from "../../popover/PopOver"
-import { TableProps } from "../table.types"
+import { cn } from "../../../utils/cn"
 
 interface TableControlProps<TData> {
   search: string
@@ -252,48 +252,48 @@ export const TableControl = <TData,>({
                   .filter(
                     (f) => f.id !== "_selector" && f.columnDef.enableGrouping,
                   ).length > 0 && (
-                    <div className="flex flex-col gap-4">
-                      <p className="text-base font-semibold text-primary mt-3">
-                        Group by
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {table
-                          .getAllColumns()
-                          .filter(
-                            (f) =>
-                              f.id !== "_selector" && f.columnDef.enableGrouping,
-                          )
-                          .map((col) => ({
-                            label:
-                              typeof col.columnDef.header === "string"
-                                ? col.columnDef.header
-                                : col.id,
-                            isSelected: col.getIsGrouped(),
-                            handler: col.getToggleGroupingHandler(),
-                            value: col.id,
-                          }))
-                          .map((items) => (
-                            <Chips
-                              key={items.label}
-                              type={"square"}
-                              text={items.label}
-                              isSelected={items.isSelected}
-                              onClickChip={() => {
-                                if (items.isSelected) {
-                                  return table.setGrouping(
-                                    groupingState.filter(
-                                      (state) => state !== items.value,
-                                    ),
-                                  )
-                                }
-                                table.resetGrouping()
-                                items.handler()
-                              }}
-                            />
-                          ))}
-                      </div>
+                  <div className="flex flex-col gap-4">
+                    <p className="text-base font-semibold text-primary mt-3">
+                      Group by
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {table
+                        .getAllColumns()
+                        .filter(
+                          (f) =>
+                            f.id !== "_selector" && f.columnDef.enableGrouping,
+                        )
+                        .map((col) => ({
+                          label:
+                            typeof col.columnDef.header === "string"
+                              ? col.columnDef.header
+                              : col.id,
+                          isSelected: col.getIsGrouped(),
+                          handler: col.getToggleGroupingHandler(),
+                          value: col.id,
+                        }))
+                        .map((items) => (
+                          <Chips
+                            key={items.label}
+                            type={"square"}
+                            text={items.label}
+                            isSelected={items.isSelected}
+                            onClickChip={() => {
+                              if (items.isSelected) {
+                                return table.setGrouping(
+                                  groupingState.filter(
+                                    (state) => state !== items.value,
+                                  ),
+                                )
+                              }
+                              table.resetGrouping()
+                              items.handler()
+                            }}
+                          />
+                        ))}
                     </div>
-                  )}
+                  </div>
+                )}
                 {tableColoring && (
                   <div className="flex flex-col gap-4">
                     <p className="text-base font-semibold text-primary mt-3">
@@ -316,17 +316,17 @@ export const TableControl = <TData,>({
                               coloringState && coloringState(items.value)
                             }
                           }}
-                        // onClickChip={() => {
-                        //   if (items.isSelected) {
-                        //     return table.setGrouping(
-                        //       groupingState.filter(
-                        //         (state) => state !== items.value,
-                        //       ),
-                        //     )
-                        //   }
-                        //   table.resetGrouping()
-                        //   items.handler()
-                        // }}
+                          // onClickChip={() => {
+                          //   if (items.isSelected) {
+                          //     return table.setGrouping(
+                          //       groupingState.filter(
+                          //         (state) => state !== items.value,
+                          //       ),
+                          //     )
+                          //   }
+                          //   table.resetGrouping()
+                          //   items.handler()
+                          // }}
                         />
                       ))}
                     </div>

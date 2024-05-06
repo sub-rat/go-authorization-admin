@@ -1,10 +1,9 @@
 import { Table } from "@tanstack/table-core"
 
-
-import { cn } from "../../../utils/cn"
+import { TableState } from "../table.types"
 import IconButton from "../../icon-button/icon-button"
 import Select from "../../select/select"
-import { TableState } from "../table.types"
+import { cn } from "../../../utils/cn"
 
 interface PaginationProps<T> {
   table: Table<T>

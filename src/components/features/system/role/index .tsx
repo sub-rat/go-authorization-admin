@@ -1,16 +1,18 @@
-'use client'
+"use client"
+import React, { useState } from "react"
+
 import { useRoleServiceGetApiV1Roles } from "@/services/generated/queries"
-import { useState } from "react"
-import { Button } from "../../../common/button/Button"
-import Table from "../../../common/table/Table"
+
 import RoleModal from "./componesnts/modal"
 import { rolesColumn } from "./constant"
 import { IRoleModalState } from "./types"
+import { Button } from "../../../common/button/Button"
+import Table from "../../../common/table/Table"
 
 const RolesPage = () => {
   const [userModal, setUserModal] = useState<IRoleModalState>({
     open: false,
-    editData: null
+    editData: null,
   })
   const [tableFilter, setTableFilter] = useState({
     queryValue: "",
@@ -51,7 +53,11 @@ const RolesPage = () => {
         pageSizes={[10, 20, 30]}
       />
       {userModal.open && (
-        <RoleModal open={userModal.open} onClose={(e) => setUserModal({ open: e, editData: null })} editData={userModal.editData} />
+        <RoleModal
+          open={userModal.open}
+          onClose={(e) => setUserModal({ open: e, editData: null })}
+          editData={userModal.editData}
+        />
       )}
     </div>
   )

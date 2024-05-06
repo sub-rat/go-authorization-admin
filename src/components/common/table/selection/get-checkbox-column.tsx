@@ -1,8 +1,7 @@
 import { ColumnDef, Row } from "@tanstack/table-core"
 
-import Checkbox from "../../checkbox/checkbox"
-
 import { TableCheckbox } from "./table-checkbox"
+import Checkbox from "../../checkbox/checkbox"
 
 export const getCheckBoxColumn = <T,>(
   checkboxStyle: (selectedRow: Row<T>[]) => {

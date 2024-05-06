@@ -1,12 +1,12 @@
-import { uniqBy } from "lodash"
 import { useEffect, useMemo, useState } from "react"
+import { uniqBy } from "lodash"
 
-import { cn } from "../../../utils/cn"
+import Table from "../Table"
+import { Column, Row, TableInstance } from "../table.types"
 import { Button } from "../../button/Button"
 import { Icon } from "../../icon"
 import { Modal, useDisclosure } from "../../modal/modal"
-import Table from "../Table"
-import { Column, Row, TableInstance } from "../table.types"
+import { cn } from "../../../utils/cn"
 
 interface TableSelectionBarProps<T> {
   tableInstance: TableInstance<T>
@@ -68,9 +68,7 @@ export const TableSelectionBar = <T,>({
           <Button
             onClick={() => actions(selectedRows)}
             variant="solid"
-            leadingIcon={
-              <Icon className={"text-white ml-3"} icon="BarChart" />
-            }
+            leadingIcon={<Icon className={"text-white ml-3"} icon="BarChart" />}
             trailIcon={<Icon className={"text-white mr-3"} icon="Share" />}
             className="p-0 font-medium text-white"
           >

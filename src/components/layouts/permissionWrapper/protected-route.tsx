@@ -1,7 +1,7 @@
 "use client"
 
-import { redirect, usePathname, useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+import { redirect, usePathname, useRouter } from "next/navigation"
 
 import { ROUTES } from "@/constants/ROUTES"
 
@@ -17,10 +17,9 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true)
   //   const ability = useAbilityContext()
   const pathIsProtected = UNPROTECTED_ROUTES.indexOf(pathname) === -1
-  const { data, isError, isLoading: userLoading } = usePublicServiceGetApiV1PublicsUser()
+  const { isLoading: userLoading } = usePublicServiceGetApiV1PublicsUser()
 
   useEffect(() => {
-
     if (
       isBrowser() &&
       !localStorage.getItem("token") &&

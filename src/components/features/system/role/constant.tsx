@@ -1,9 +1,11 @@
-import { models_Role } from "../../../../services/generated/requests";
-import { Button } from "../../../common/button/Button";
-import { Column } from "../../../common/table/table.types";
-import { IRoleModalState } from "./types";
+import { IRoleModalState } from "./types"
+import { models_Role } from "../../../../services/generated/requests"
+import { Button } from "../../../common/button/Button"
+import { Column } from "../../../common/table/table.types"
 
-export const rolesColumn: (userModal: (e: IRoleModalState) => void) => Column<models_Role>[] = (userModal) => {
+export const rolesColumn: (
+  userModal: (e: IRoleModalState) => void,
+) => Column<models_Role>[] = (userModal) => {
   return [
     {
       header: "Roles",
@@ -18,17 +20,18 @@ export const rolesColumn: (userModal: (e: IRoleModalState) => void) => Column<mo
       accessorKey: "status",
     },
     {
-      header: '',
-      accessorKey: 'status',
+      header: "",
+      accessorKey: "status",
       cell: ({ row }) => {
         return (
-          <Button variant="ghost"
+          <Button
+            variant="ghost"
             onClick={() => userModal({ open: true, editData: row.original })}
           >
             Edit
           </Button>
         )
-      }
-    }
+      },
+    },
   ]
 }

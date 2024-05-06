@@ -1,5 +1,4 @@
-
 import RolesPage from "../../../../components/features/system/role/index "
 
-const Role = () => (<RolesPage />)
+const Role = () => <RolesPage />
 export default Role

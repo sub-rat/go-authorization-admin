@@ -1,8 +1,7 @@
 import { debounce } from "lodash"
-import { cn } from "../../../utils/cn"
+
 import { Icon } from "../../icon"
-
-
+import { cn } from "../../../utils/cn"
 
 interface TableSearchProps {
   isStatic: boolean
@@ -22,7 +21,7 @@ export const TableSearch = ({
 
   outline,
 }: //   tableOptions,
-  TableSearchProps) => {
+TableSearchProps) => {
   if (isStatic) {
     return null
   }

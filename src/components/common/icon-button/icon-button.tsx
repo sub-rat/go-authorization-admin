@@ -1,10 +1,9 @@
-import * as icons from "lucide-react"
 import * as React from "react"
+import * as icons from "lucide-react"
 import { tv, VariantProps } from "tailwind-variants"
-import { cn } from "../../utils/cn"
+
 import Icon from "../icon/icon"
-
-
+import { cn } from "../../utils/cn"
 
 const commonStyles = [
   "inline-flex items-center justify-center gap-x-2 p-3",
@@ -87,7 +86,7 @@ const variants = {
 
 export interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof primaryVariants> {
+    VariantProps<typeof primaryVariants> {
   /**
    * Shades for the button
    */

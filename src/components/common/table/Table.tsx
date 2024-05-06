@@ -1,3 +1,4 @@
+import React, { useEffect, useMemo } from "react"
 import { rankItem } from "@tanstack/match-sorter-utils"
 import {
   ColumnFiltersState,
@@ -18,21 +19,15 @@ import {
   SortingState,
   useReactTable,
 } from "@tanstack/react-table"
-import React, { useEffect, useMemo } from "react"
 
-
-
-import { cn } from "../../utils/cn"
-import { Button } from "../button/Button"
-import { Icon } from "../icon"
 import {
+  Table as TableRoot,
   TableBody,
   TableCell,
   TableContainer,
   TableFooter,
   TableHead,
   TableHeader,
-  Table as TableRoot,
   TableRow,
 } from "./base"
 import { TableSelectionBar } from "./components"
@@ -42,6 +37,9 @@ import { getCheckBoxColumn } from "./selection/get-checkbox-column"
 import getExpandColumn from "./selection/get-expand-column"
 import { TableProps, TableRowStyle, TableSize } from "./table.types"
 import { sumSizesBeforeId } from "./utils/sum-sizes-before-id"
+import { Button } from "../button/Button"
+import { Icon } from "../icon"
+import { cn } from "../../utils/cn"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
@@ -366,9 +364,9 @@ export const Table = <TData,>({
                         {header.isPlaceholder
                           ? null
                           : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext(),
-                          )}
+                              header.column.columnDef.header,
+                              header.getContext(),
+                            )}
                         {header.column.columnDef.enableSorting &&
                           (header.column.getIsSorted() === "asc" ? (
                             <Icon
@@ -507,7 +505,7 @@ export const Table = <TData,>({
                             style: {
                               display:
                                 cell.row.parentId &&
-                                  cell.column.columnDef.enableHiding
+                                cell.column.columnDef.enableHiding
                                   ? "none"
                                   : "auto",
                               textAlign: cell.column.columnDef.meta?.isNumeric
@@ -607,7 +605,7 @@ export const Table = <TData,>({
                     <TableRow key={footerGroup.id}>
                       {footerGroup.headers.map((footer) =>
                         footer.column.columnDef.meta?.Footer?.display ===
-                          "none" ? null : (
+                        "none" ? null : (
                           <TableHead
                             variant={variant}
                             rowStyle={tableRowStyle}
@@ -626,9 +624,9 @@ export const Table = <TData,>({
                             {footer.isPlaceholder
                               ? null
                               : flexRender(
-                                footer.column.columnDef.footer,
-                                footer.getContext(),
-                              )}
+                                  footer.column.columnDef.footer,
+                                  footer.getContext(),
+                                )}
                           </TableHead>
                         ),
                       )}
