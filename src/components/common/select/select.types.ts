@@ -6,7 +6,7 @@ import {
   SingleValue,
 } from "react-select"
 
-import { IconType } from "../icon/Icon"
+import { IconType } from "../icon"
 
 export interface SelectOption {
   label: string | number // The label to be displayed for the option.
