@@ -1,60 +1,52 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { dto_AstrologerCreate } from "../models/dto_AstrologerCreate"
 import type { echo_response_Response } from "../models/echo_response_Response"
-import type { models_User } from "../models/models_User"
-import type { models_UserQueryResult } from "../models/models_UserQueryResult"
+import type { models_Astrologer } from "../models/models_Astrologer"
+import type { models_AstrologerQueryResult } from "../models/models_AstrologerQueryResult"
 
 import type { CancelablePromise } from "../core/CancelablePromise"
 import { OpenAPI } from "../core/OpenAPI"
 import { request as __request } from "../core/request"
 
-export class UserService {
+export class AstrologerService {
   /**
-   * User Query
+   * Astrologer Query
+   * @param address
    * @param current
    * @param direction
    * @param fullName
    * @param key
    * @param pageSize
-   * @param queryPassword
    * @param queryValue
-   * @param roleIDs
-   * @param status
-   * @param username
    * @returns any ok
    * @throws ApiError
    */
-  public static getApiV1Users(
+  public static getApiV1Astrologers(
+    address?: string,
     current?: number,
     direction?: "ASC" | "DESC",
     fullName?: string,
     key?: string,
     pageSize?: number,
-    queryPassword?: boolean,
     queryValue?: string,
-    roleIDs?: Array<string>,
-    status?: number,
-    username?: string,
   ): CancelablePromise<
     echo_response_Response & {
-      data?: models_UserQueryResult
+      data?: models_AstrologerQueryResult
     }
   > {
     return __request(OpenAPI, {
       method: "GET",
-      url: "/api/v1/users",
+      url: "/api/v1/astrologers",
       query: {
+        address: address,
         current: current,
         direction: direction,
         fullName: fullName,
         key: key,
         pageSize: pageSize,
-        queryPassword: queryPassword,
         queryValue: queryValue,
-        roleIDs: roleIDs,
-        status: status,
-        username: username,
       },
       errors: {
         400: `bad request`,
@@ -64,17 +56,17 @@ export class UserService {
   }
 
   /**
-   * User Create
-   * @param data User
+   * Astrologer Create
+   * @param data Astrologer
    * @returns echo_response_Response ok
    * @throws ApiError
    */
-  public static postApiV1Users(
-    data: models_User,
+  public static postApiV1Astrologers(
+    data: dto_AstrologerCreate,
   ): CancelablePromise<echo_response_Response> {
     return __request(OpenAPI, {
       method: "POST",
-      url: "/api/v1/users",
+      url: "/api/v1/astrologers",
       body: data,
       errors: {
         400: `bad request`,
@@ -84,19 +76,19 @@ export class UserService {
   }
 
   /**
-   * User Get By ID
-   * @param id user id
+   * Astrologer Get By ID
+   * @param id astrologer id
    * @returns any ok
    * @throws ApiError
    */
-  public static getApiV1Users1(id: string): CancelablePromise<
+  public static getApiV1Astrologers1(id: string): CancelablePromise<
     echo_response_Response & {
-      data?: models_User
+      data?: models_Astrologer
     }
   > {
     return __request(OpenAPI, {
       method: "GET",
-      url: "/api/v1/users/{id}",
+      url: "/api/v1/astrologers/{id}",
       path: {
         id: id,
       },
@@ -108,19 +100,19 @@ export class UserService {
   }
 
   /**
-   * User Update By ID
-   * @param id user id
-   * @param data User
+   * Astrologer Update By ID
+   * @param id astrologer id
+   * @param data Astrologer
    * @returns echo_response_Response ok
    * @throws ApiError
    */
-  public static putApiV1Users(
+  public static putApiV1Astrologers(
     id: string,
-    data: models_User,
+    data: models_Astrologer,
   ): CancelablePromise<echo_response_Response> {
     return __request(OpenAPI, {
       method: "PUT",
-      url: "/api/v1/users/{id}",
+      url: "/api/v1/astrologers/{id}",
       path: {
         id: id,
       },
@@ -133,61 +125,17 @@ export class UserService {
   }
 
   /**
-   * User Delete By ID
-   * @param id user id
+   * Astrologer Delete By ID
+   * @param id astrologer id
    * @returns echo_response_Response ok
    * @throws ApiError
    */
-  public static deleteApiV1Users(
+  public static deleteApiV1Astrologers(
     id: string,
   ): CancelablePromise<echo_response_Response> {
     return __request(OpenAPI, {
       method: "DELETE",
-      url: "/api/v1/users/{id}",
-      path: {
-        id: id,
-      },
-      errors: {
-        400: `bad request`,
-        500: `internal error`,
-      },
-    })
-  }
-
-  /**
-   * User Disable By ID
-   * @param id user id
-   * @returns echo_response_Response ok
-   * @throws ApiError
-   */
-  public static patchApiV1UsersDisable(
-    id: string,
-  ): CancelablePromise<echo_response_Response> {
-    return __request(OpenAPI, {
-      method: "PATCH",
-      url: "/api/v1/users/{id}/disable",
-      path: {
-        id: id,
-      },
-      errors: {
-        400: `bad request`,
-        500: `internal error`,
-      },
-    })
-  }
-
-  /**
-   * User Enable By ID
-   * @param id user id
-   * @returns echo_response_Response ok
-   * @throws ApiError
-   */
-  public static patchApiV1UsersEnable(
-    id: string,
-  ): CancelablePromise<echo_response_Response> {
-    return __request(OpenAPI, {
-      method: "PATCH",
-      url: "/api/v1/users/{id}/enable",
+      url: "/api/v1/astrologers/{id}",
       path: {
         id: id,
       },

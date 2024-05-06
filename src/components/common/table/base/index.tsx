@@ -1,7 +1,7 @@
 import * as React from "react"
 
-import { cn } from "../../../utils/cn"
 import { TableRowStyle, TableSize, TableVariant } from "../table.types"
+import { cn } from "../../../utils/cn"
 
 interface TableContainerProps {
   children: React.ReactNode
@@ -204,6 +204,5 @@ export {
   TableFooter,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 }
-

@@ -3,14 +3,16 @@
 /* eslint-disable */
 
 import type { database_Datetime } from "./database_Datetime"
-import type { models_MenuActionResource } from "./models_MenuActionResource"
+import type { models_User } from "./models_User"
 
-export type models_MenuAction = {
-  code: string
+export type models_Astrologer = {
+  address: string
   created_at?: database_Datetime
+  created_by?: string
+  full_name: string
   id?: string
-  menu_id?: string
-  name: string
-  resources?: Array<models_MenuActionResource>
+  phone?: string
   updated_at?: database_Datetime
+  user?: models_User
+  user_id?: string
 }

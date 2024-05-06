@@ -3,9 +3,9 @@
 /* eslint-disable */
 
 import type { dto_Pagination } from "./dto_Pagination"
-import type { models_Menu } from "./models_Menu"
+import type { models_Customer } from "./models_Customer"
 
-export type models_MenuQueryResult = {
-  list?: Array<models_Menu>
+export type models_CustomerQueryResult = {
+  list?: Array<models_Customer>
   pagination?: dto_Pagination
 }
