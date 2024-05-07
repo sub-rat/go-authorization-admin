@@ -4,7 +4,7 @@ import { CSS } from "@dnd-kit/utilities"
 import { ColumnPinningPosition } from "@tanstack/table-core"
 
 import { TableRowStyle, TableSize, TableVariant } from "../table.types"
-import { cn } from "../../../../utils/cn"
+import { cn } from "../../../utils/cn"
 
 interface TableContainerProps {
   children: React.ReactNode

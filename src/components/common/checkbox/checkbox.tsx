@@ -2,7 +2,7 @@ import React from "react"
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import { tv, VariantProps } from "tailwind-variants"
 
-import Icon from "../icon/Icon"
+import { Icon } from "../icon"
 import { cn } from "../../utils/cn"
 
 const checkbox = tv({
